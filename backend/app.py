@@ -8,7 +8,19 @@ import os
 import json
 from dotenv import load_dotenv
 import datetime
+import requests
+from unittest.mock import patch
 
+# Patch yfinance to use a browser User-Agent
+import yfinance.utils as yf_utils
+original_get = requests.Session.get
+
+def patched_get(self, url, **kwargs):
+    kwargs.setdefault('headers', {})
+    kwargs['headers']['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    return original_get(self, url, **kwargs)
+
+requests.Session.get = patched_get
 load_dotenv()
 
 app = Flask(__name__)
