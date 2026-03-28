@@ -14,11 +14,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # ── Fix 1: Explicit, comprehensive CORS config ────────────────────────────────
-CORS(app,
-     origins="*",
-     allow_headers=["Content-Type", "Authorization", "Accept"],
-     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-     supports_credentials=False)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # ── Fix 2: Manually handle OPTIONS preflight for ALL routes ───────────────────
 @app.before_request
