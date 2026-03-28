@@ -4,6 +4,8 @@ import StockInput from '../components/StockInput.jsx'
 import TechnicalCard from '../components/TechnicalCard.jsx'
 import AIInsights from '../components/AIInsights.jsx'
 
+import API_URL from '../config'
+
 const styles = {
   page: {
     minHeight: '100vh',
@@ -132,7 +134,7 @@ export default function Analysis() {
     setData(null)
 
     try {
-      const response = await axios.post('http://localhost:8000/analyze-stock', {
+      const response = await axios.post(`${API_URL}/analyze-stock`, {
         symbol: symbol.trim(),
         period,
       })
