@@ -55,14 +55,14 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Step 4 — Set your OpenAI API key
+### Step 4 — Set your Groq API key
 Copy `.env.example` to `.env`:
 ```bash
 cp .env.example .env
 ```
 Then open `.env` and replace with your actual key:
 ```
-OPENAI_API_KEY=sk-your-key-here
+GROQ_API_KEY=sk-your-key-here
 ```
 
 ### Step 5 — Run the Flask server
@@ -105,9 +105,9 @@ Frontend runs on: http://localhost:5173
 
 ---
 
-## 🔑 Getting an OpenAI API Key
+## 🔑 Getting an Groq API Key
 
-1. Go to https://platform.openai.com
+1. Go to https://console.groq.com
 2. Sign in / create account
 3. Go to **API Keys** → **Create new secret key**
 4. Copy the key and paste in your `.env` file
