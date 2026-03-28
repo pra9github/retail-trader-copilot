@@ -132,7 +132,7 @@ export default function Analysis() {
     setData(null)
 
     try {
-      const response = await axios.post('http://localhost:5000/analyze-stock', {
+      const response = await axios.post('http://localhost:8000/analyze-stock', {
         symbol: symbol.trim(),
         period,
       })

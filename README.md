@@ -69,7 +69,7 @@ OPENAI_API_KEY=sk-your-key-here
 ```bash
 python app.py
 ```
-Backend runs on: http://localhost:5000
+Backend runs on: http://localhost:8000
 
 ---
 
