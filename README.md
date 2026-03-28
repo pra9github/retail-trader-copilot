@@ -1,5 +1,4 @@
 # Retail Trader Copilot
-# 📊 StockAI — AI-Powered Stock Analyzer
 
 Full-stack app: Flask backend + React (Vite) frontend.  
 Enter any stock symbol, get technical indicators + GPT-powered insights.
