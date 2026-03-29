@@ -179,6 +179,26 @@ Return ONLY this JSON:
         return jsonify({'error': f'Server error: {str(e)}'}), 500
 
 
+#------Agentic AI addition (Bonus)──────────────────────────────────────────────────────────────
+from agent import run_agent
+@app.route('/agent-query', methods=['POST', 'OPTIONS'])
+def agent_query():
+    if request.method == 'OPTIONS':
+        return jsonify({"status": "ok"}), 200
+
+    try:
+        body = request.get_json()
+        query = body.get('query', '').strip()
+
+        if not query:
+            return jsonify({'error': 'Query is required'}), 400
+
+        result = run_agent(query)
+        return jsonify(result)
+
+    except Exception as e:
+        return jsonify({'error': f'Agent error: {str(e)}'}), 500
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8000))
     app.run(host='0.0.0.0', port=port, debug=False)
